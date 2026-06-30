@@ -1,0 +1,151 @@
+body, html {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #72c2f8, #3d7eaa);
+}
+
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: float 15s infinite linear;
+}
+
+.cloud:nth-child(1) {
+    width: 100px;
+    height: 40px;
+    top: 20%;
+    left: -100px;
+}
+
+.cloud:nth-child(2) {
+    width: 140px;
+    height: 60px;
+    top: 50%;
+    left: -140px;
+    animation-delay: 5s;
+}
+
+.cloud:nth-child(3) {
+    width: 80px;
+    height: 30px;
+    top: 70%;
+    left: -80px;
+    animation-delay: 10s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateX(-100px);
+    }
+    100% {
+        transform: translateX(calc(100vw + 100px));
+    }
+}
+
+.container {
+    width: 90%;
+    max-width: 350px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    margin: 40px 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 28px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+#warning-form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, select, button {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+input, select {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+input:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover:not(:disabled) {
+    background-color: #2980b9;
+}
+
+button:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+button:disabled {
+    background-color: #9bbfd4;
+    cursor: not-allowed;
+}
+
+#message {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.forecast-preview {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(52, 152, 219, 0.08);
+    text-align: center;
+}
+
+.forecast-preview p {
+    margin: 6px 0;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.6;
+}
