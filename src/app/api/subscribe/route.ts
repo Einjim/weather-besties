@@ -31,7 +31,8 @@ export async function POST(request: NextRequest) {
 
   const apiKey = process.env.OWM_API_KEY;
   if (!apiKey) {
-    return NextResponse.json({ error: "سرور به درستی پیکربندی نشده است." }, { status: 500 });
+    console.error("subscribe error: OWM_API_KEY is not set");
+    return NextResponse.json({ error: "سرور به درستی پیکربندی نشده است (OWM_API_KEY)." }, { status: 500 });
   }
 
   try {
